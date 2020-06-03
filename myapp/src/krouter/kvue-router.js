@@ -7,6 +7,15 @@ class VueRouter{
     constructor(options){
         // 保存 options
         this.$options = options
+
+
+        //创建映射表缓存route 和 path 的关系
+        this.routeMap = {}
+        this.$options.routes.forEach(route => {
+            this.routeMap[route.path] = route
+        })
+
+
         // 创建响应式 current 保存当前的url
         // defineReactive 可以给一个对象指定一个属性
         Vue.util.defineReactive(this,'current','/')
@@ -34,12 +43,8 @@ VueRouter.install = function(_Vue){
     //   2. 实现全局组件 router-view 和 router-link
     Vue.component('router-view',{
         render(h) {
-            let component = null;
-            const {$options,current} = this.$router
-            const route = $options.routes.find(route => route.path === current)
-            if(route){
-                component = route.component
-            }
+            const {routeMap,current} = this.$router
+            const component = routeMap[current] ? routeMap[current].component : null
             return h(component)
         },
     })

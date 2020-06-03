@@ -1,18 +1,20 @@
 <template>
   <div class="hello">
+    <p @click="$store.commit('add')">sync  {{$store.state.counter}}</p>
+    <p @click="$store.dispatch('add')">async  {{$store.state.counter}}</p>
     <!-- 组件通信 -->
     <!-- <Componentization></Componentization> -->
     <!-- 插槽 -->
     <!-- <SlotExample></SlotExample> -->
     <!-- 表单 -->
-    <FormExample></FormExample>
+    <!-- <FormExample></FormExample> -->
   </div>
 </template>
 
 <script>
 // import Componentization from '@/components/Componentization';
 // import SlotExample from '@/components/solts';
-import FormExample from '@/components/forms';
+// import FormExample from '@/components/forms';
 
 
 export default {
@@ -23,7 +25,7 @@ export default {
   components: {
     // Componentization,
     // SlotExample,
-    FormExample
+    // FormExample
 
   },
 }
