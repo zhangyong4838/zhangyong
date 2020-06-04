@@ -130,6 +130,8 @@ class Compiler{
             if(attrName.indexOf('@') === 0){
                 const mesd = attrName.substring(1)
                 console.log(mesd)
+                console.log(this.$vm.$options);
+                node.addEventListener(mesd,this.$vm.$options.methods[exp].bind(this.$vm))
             }
         })
     }
@@ -150,6 +152,8 @@ class Compiler{
     // dir 指令名称
     update(node,exp,dir){
         const fn = this[dir + 'Updater']
+        console.log(this.$vm[exp]);
+        
         fn && fn(node,this.$vm[exp])
 
         // 创建watcher实例
@@ -166,7 +170,6 @@ class Compiler{
         node.innerHTML = val
     }
     modelUpdater(node,val){
-        console.log(node.value)
         node.addEventListener('input',function(){
             this.$vm[val] = node.val
         })
