@@ -12,7 +12,7 @@ export default function create(components,props){
     document.body.appendChild(dom.$el)
     dom.remove = ()=>{
         document.body.removeChild(dom.$el)
-        dom.$destory()
+        dom.$destroy()
     }
     // 方法二
     // let vm = new Vue({
