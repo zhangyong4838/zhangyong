@@ -12,3 +12,7 @@ function defineReactive(obj,key,value){
         }
     })
 }
+const obj = {}
+defineReactive(obj,'foo','foo')
+obj.foo
+obj.foo = 'fooooo'
