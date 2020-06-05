@@ -130,6 +130,7 @@ class Compiler{
             if(attrName.indexOf('@') === 0){
                 const mesd = attrName.substring(1)
                 console.log(mesd)
+                node.addEventListener(mesd,this.$vm.$options.methods[exp].bind(this.$vm))
             }
         })
     }
