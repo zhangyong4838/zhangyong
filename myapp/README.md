@@ -1,4 +1,4 @@
-# study-ssr
+# myapp
 
 ## Project setup
 ```
