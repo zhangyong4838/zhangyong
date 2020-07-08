@@ -1,0 +1,21 @@
+快速原型开发
+    你可以使用 vue serve 和 vue build 命令对单个 *.vue 文件进行快速原型开发。
+    安装@vue/cli-service-global 扩展
+    npm install -g @vue/cli-service-global
+    准备一个内容原型
+    vue serve
+    启动一个服务并运行原型
+    vue serve Hello.vue
+创建项目
+    vue create
+        创建一个vue项目
+            vue create my-vue-test
+    vue ui
+        图形化项目管理
+            vue ui
+插件
+    Vue CLI 使用了一套基于插件的架构。插件可以修改 webpack 的内部配置，也可以向 vue-cliservice
+    注入命令。在项目创建的过程中，绝大部分列出的特性都是通过插件来实现的。
+    在现有的项目中安装插件
+    如果你想在一个已经被创建好的项目中安装一个插件，可以使用 vue add 命令。
+        vue add router

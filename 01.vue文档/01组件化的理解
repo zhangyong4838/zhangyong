@@ -1,0 +1,16 @@
+定义：组件化就是可以复用的vue的实例，准确的来讲应该是VueComponent的实例，继承自Vue
+优点：提高代码的可复用性，可维护性和测试性
+使用场景：
+    1.通用组件：例如一些按钮组件，输入框组件，弹窗组件等
+    2.业务组件：能实现一些业务，实现复用性，比如登录组件，轮播图组件等
+    3.页面组件：部分独立的页面，需要的时候在各个页面来回的切换，比如说一些列表页面，详情页面
+使用：
+    1.定义：用vue.component(),components
+    2.分类：分为有状态组件和无状态组件
+    3.通信：props，$emit()/$on()，provide/inject，$children/$parent/$root/$attrs/$listeners
+    4.内容分发：<slot>，<template>，v-slot
+    5.使用及优化：is，keep-alive，异步组件
+组件的本质
+    vue中的组件经历如下过程
+    组件配置 => VueComponent实例 => render() => Virtual DOM=> DOM
+    所以组件的本质是产生虚拟DOM
