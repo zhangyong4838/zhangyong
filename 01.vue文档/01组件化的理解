@@ -14,3 +14,50 @@
     vue中的组件经历如下过程
     组件配置 => VueComponent实例 => render() => Virtual DOM=> DOM
     所以组件的本质是产生虚拟DOM
+
+组件间传值：
+    1.父传子：props: { msg: String }   子传父：this.$emit('add', good)
+    2.事件总线：任意两个组件之间传值常⽤事件总线 或 vuex的⽅式。
+        // Bus：事件派发、监听和回调管理
+        class Bus {
+            constructor(){
+                this.callbacks = {}
+            }
+            $on(name, fn){
+                this.callbacks[name] = this.callbacks[name] || []
+                this.callbacks[name].push(fn)
+            }
+            $emit(name, args){
+                if(this.callbacks[name]){
+                    this.callbacks[name].forEach(cb => cb(args))
+                }
+            }
+        }
+        // main.js
+            Vue.prototype.$bus = new Bus()
+        // child1
+            this.$bus.$on('foo', handle)
+        // child2
+            this.$bus.$emit('foo')
+        实践中通常用Vue代替Bus，因为Vue已经实现了相应接口
+    3.$parent/$root：兄弟组件之间通信可通过共同祖辈搭桥，$parent或$root。
+        // brother1
+            this.$parent.$on('foo', handle)
+        // brother2
+            this.$parent.$emit('foo')
+      $children
+        父组件可以通过$children访问子组件实现父子通信。
+        // parent
+            this.$children[0].xx = 'xxx'
+    4.$children 和 $refs 的区别：
+        $children，访问的一般是一个数组集合，不能保证子组件元素的顺序，一般不常用
+        $refs 首先你的给子组件做标记。demo ：<firstchild ref="one"></firstchild>
+        然后在父组件中，通过this.$refs.one就可以访问了这个自组件了，包括访问自组件的data里面的数据，调用它的函数
+    5.provide/inject
+        能够实现祖先和后代之间传值
+            // ancestor
+                provide() {
+                    return {foo: 'foo'}
+                }
+            // descendant
+                inject: ['foo']

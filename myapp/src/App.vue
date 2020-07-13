@@ -1,16 +1,23 @@
 <template>
   <div id="app">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!--组件通信 -->
+    <communication></communication>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import communication from './components/communication'
 
 export default {
   name: 'app',
+  props :{
+    msg:String
+  },
   components: {
-    HelloWorld
+    HelloWorld,
+    communication
   }
 }
 </script>
