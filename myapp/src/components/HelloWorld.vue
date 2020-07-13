@@ -1,14 +1,24 @@
 <template>
   <div class="hello">
     <h1>{{msg}}</h1>
+    <!--组件通信 -->
+    <!-- <communication></communication> -->
+    <!-- 表单 -->
+    <FormExample></FormExample>
   </div>
 </template>
 
 <script>
+// import communication from '@/components/communication'
+import FormExample from '@/components/form';
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  components: {
+    // communication,
+    FormExample
   }
 }
 </script>
