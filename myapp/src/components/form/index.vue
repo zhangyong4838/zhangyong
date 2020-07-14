@@ -39,11 +39,11 @@
         methods: {
             submitForm() {
                 this.$refs.form.validate(valid=>{
-                    if (valid) {
-                        alert("请求登录!");
-                    } else {
-                        alert("校验失败！");
-                    }
+                    this.$notice({
+                        title:"校验结果",
+                        message:valid ? '请求登录' : '校验失败',
+                        duration:2000
+                    }).show()
                 })
             }
         },
