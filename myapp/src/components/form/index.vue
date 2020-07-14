@@ -7,6 +7,9 @@
             <KFormItem label="密码" prop="password">
                 <KInput v-model="model.password"></KInput>
             </KFormItem>
+            <KFormItem>
+                <button @click="submitForm">提交登录</button>
+            </KFormItem>
         </KForm>
     </div>
 </template>
@@ -32,7 +35,18 @@
            KInput,
            KFormItem,
            KForm
-        } 
+        },
+        methods: {
+            submitForm() {
+                this.$refs.form.validate(valid=>{
+                    if (valid) {
+                        alert("请求登录!");
+                    } else {
+                        alert("校验失败！");
+                    }
+                })
+            }
+        },
     }
 </script>
 
