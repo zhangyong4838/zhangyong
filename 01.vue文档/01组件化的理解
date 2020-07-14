@@ -61,3 +61,11 @@
                 }
             // descendant
                 inject: ['foo']
+
+插槽：
+    定义： 插槽就是子组件中的提供给父组件使用的一个占位符，用<slot></slot> 表示，父组件可以在这个占位符中填充任何模板代码，
+          如 HTML、组件等，填充的内容会替换子组件的<slot></slot>标签。
+    分类：
+        1.匿名插槽：<template v-slot:default>content...</template>
+        2.具名插槽：<template v-slot:header>开课吧全栈</template>
+        3.作用域插槽：<template v-slot:footer="{fc}">{{fc}}</template>

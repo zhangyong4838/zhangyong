@@ -4,13 +4,16 @@
     <!--组件通信 -->
     <!-- <communication></communication> -->
     <!-- 表单 -->
-    <FormExample></FormExample>
+    <!-- <FormExample></FormExample> -->
+    <!-- 插槽 -->
+    <SlotExample></SlotExample>
   </div>
 </template>
 
 <script>
 // import communication from '@/components/communication'
-import FormExample from '@/components/form';
+// import FormExample from '@/components/form';
+import SlotExample from '@/components/slots'
 export default {
   name: 'HelloWorld',
   props: {
@@ -18,7 +21,8 @@ export default {
   },
   components: {
     // communication,
-    FormExample
+    // FormExample,
+    SlotExample
   }
 }
 </script>
