@@ -40,7 +40,7 @@
         // child2
             this.$bus.$emit('foo')
         实践中通常用Vue代替Bus，因为Vue已经实现了相应接口
-    3.$parent/$root：兄弟组件之间通信可通过共同祖辈搭桥，$parent或$root。
+    3.$parent/$root：兄弟组件之间通信可通过共同祖辈搭桥，$parent或$root。使用的很少，原因是会产生耦合
         // brother1
             this.$parent.$on('foo', handle)
         // brother2

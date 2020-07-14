@@ -1,15 +1,19 @@
 <template>
     <div>
-        <label v-if="label">{{label}}</label>
+        <label>{{label}}</label>
         <slot></slot>
-        <p v-if="error">{{error}}</p>
+        <p class="error" v-if="error">{{error}}</p>
     </div>
 </template>
 
 <script>
-    import Schema from 'async-validator'
+    import Schema from 'async-validator';
+    import emitter from '@/mixins/emitter'
     export default {
+        name:'KFormItem',
+        componetName:'KFormItem',
         inject:['form'],
+        mixins:[emitter],
         props: {
             label: {
                 type: String,
@@ -27,6 +31,10 @@
         },
         mounted () {
             this.$on('validate',()=>{this.validate()});
+            // 派发事件通知KForm，新增一个KFormItem实例
+            if(this.prop){
+                this.dispatch('KForm','kkb.form.addFiled',[this])
+            }
         },
         methods: {
             validate() {
