@@ -7,13 +7,16 @@
     <FormExample></FormExample>
     <!-- 插槽 -->
     <!-- <SlotExample></SlotExample> -->
+    <!-- 递归 -->
+    <TreeExample></TreeExample>
   </div>
 </template>
 
 <script>
 // import communication from '@/components/communication'
 import FormExample from '@/components/form';
-// import SlotExample from '@/components/slots'
+// import SlotExample from '@/components/slots';
+import TreeExample from '@/components/recursion';
 export default {
   name: 'HelloWorld',
   props: {
@@ -22,7 +25,8 @@ export default {
   components: {
     // communication,
     FormExample,
-    // SlotExample
+    // SlotExample,
+    TreeExample
   }
 }
 </script>
